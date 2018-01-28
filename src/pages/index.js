@@ -1,7 +1,10 @@
 import React from 'react';
+import Headroom from 'react-headroom';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
+import Container from '../layouts/Container';
 
+import Tags from '../components/Tags';
 import Cards from '../components/Cards';
 import Card from '../components/Card';
 
@@ -13,21 +16,26 @@ class BlogIndex extends React.Component {
     return (
       <div>
         <Helmet title={siteTitle} />
-        {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug;
-          return (
-            <Cards>
-              <Card {...{node, title}} />
-              <Card {...{node, title}} />
-              <Card {...{node, title}} />
-              <Card {...{node, title}} />
-              <Card {...{node, title}} />
-              <Card {...{node, title}} />
-              <Card {...{node, title}} />
-              <Card {...{node, title}} />
-            </Cards>
-          );
-        })}
+        <Headroom>
+          <Tags />
+        </Headroom>
+        <Container>
+          {posts.map(({ node }) => {
+            const title = get(node, 'frontmatter.title') || node.fields.slug;
+            return (
+              <Cards>
+                <Card {...{node, title}} />
+                <Card {...{node, title}} />
+                <Card {...{node, title}} />
+                <Card {...{node, title}} />
+                <Card {...{node, title}} />
+                <Card {...{node, title}} />
+                <Card {...{node, title}} />
+                <Card {...{node, title}} />
+              </Cards>
+            );
+          })}
+        </Container>
       </div>
     );
   }
