@@ -9,6 +9,7 @@ const Button = styled.button`
   padding: 3px 20px;
   color: #FF8400;
   cursor: pointer;
+  font-family: 'Varela Round', sans-serif;
 
   &:hover {
     background: #FF8400;
