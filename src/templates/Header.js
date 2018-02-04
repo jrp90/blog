@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-const Header = styled.h3`
-  margin: 0;
-  color: #0083B2;
+const Header = styled.h1`
+  margin-top: 0;
 `;
 
 export default Header;

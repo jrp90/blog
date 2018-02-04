@@ -20,21 +20,12 @@ class BlogIndex extends React.Component {
           <Tags />
         </Headroom>
         <Container>
-          {posts.map(({ node }) => {
-            const title = get(node, 'frontmatter.title') || node.fields.slug;
-            return (
-              <Cards>
-                <Card {...{node, title}} />
-                <Card {...{node, title}} />
-                <Card {...{node, title}} />
-                <Card {...{node, title}} />
-                <Card {...{node, title}} />
-                <Card {...{node, title}} />
-                <Card {...{node, title}} />
-                <Card {...{node, title}} />
-              </Cards>
-            );
-          })}
+          <Cards>
+            {posts.map(({ node }) => {
+              const title = get(node, 'frontmatter.title') || node.fields.slug;
+              return  <Card {...{node, title}} />;
+            })}
+          </Cards>
         </Container>
       </div>
     );
@@ -53,13 +44,14 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 70)
           fields {
             slug
           }
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            tags
             featuredImage {
               childImageSharp{
                 sizes(maxWidth: 600) {

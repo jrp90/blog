@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-const Excerpt = styled.p`
-  margin-bottom: 0;
+const Date = styled.small`
   color: hsla(0,0%,0%,0.73);
 `;
 
-export default Excerpt;
+export default Date;

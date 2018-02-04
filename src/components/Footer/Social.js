@@ -24,6 +24,13 @@ const Social = styled.a`
       grid-column: 3;
     `}
   }
+
+  &:hover {
+    img {
+      transform: rotate(360deg) scale(1.1);
+      transition: all 300ms ease;
+    }
+  }
 `;
 
 export default Social;
