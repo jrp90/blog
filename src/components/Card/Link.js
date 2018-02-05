@@ -8,7 +8,7 @@ const StyledLink = styled(Link)`
   &:hover {
     & > div {
       transform: scale(1.05);
-      transition: all 300ms ease;
+      transition: all 200ms ease;
     }
   }
 `;

@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 800px;
-  margin: 50px auto;
+  max-width: 800px;
   background: white;
-  padding: 50px;
+  padding: 30px;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
 
   .gatsby-resp-image-link {
@@ -13,6 +12,12 @@ const Container = styled.div`
 
   p:last-child {
     margin-bottom: 0;
+  }
+
+  @media(min-width: 800px) {
+    min-width: 800px;
+    margin: 50px auto;
+    padding: 50px;
   }
 `;
 

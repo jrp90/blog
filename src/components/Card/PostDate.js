@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const Date = styled.small`
+const PostDate = styled.small`
   color: hsla(0,0%,0%,0.73);
 `;
 
-export default Date;
+export default PostDate;

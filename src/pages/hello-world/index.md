@@ -1,11 +1,11 @@
 ---
 title: Hello World
 date: "2018-01-15T19:47:03+00:00"
-featuredImage: "./macbook.jpg"
+featuredImage: "./blog.jpg"
 tags: "fun"
 ---
 
-![Macbook](./macbook.jpg)
+![Blog](./blog.jpg)
 
 This is my first post on my new blog! How exciting!
 
