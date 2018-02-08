@@ -2,7 +2,7 @@
 title: Hello World
 date: "2018-01-15T19:47:03+00:00"
 featuredImage: "./blog.jpg"
-tags: "fun"
+tags: "fun,code"
 ---
 
 ![Blog](./blog.jpg)

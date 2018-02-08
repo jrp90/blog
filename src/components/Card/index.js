@@ -21,7 +21,9 @@ class Card extends React.Component {
             <Header>{title}</Header>
             <PostDate>{node.frontmatter.date}</PostDate>
             <Excerpt dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            <Tags>{node.frontmatter.tags}</Tags>
+            <Tags>
+              {node.frontmatter.tags.split(',').map(tag => <li>{tag}</li>)}
+            </Tags>
           </Text>
         </Wrapper>
       </Link>

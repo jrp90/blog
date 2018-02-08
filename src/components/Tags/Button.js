@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rhythm } from '../../utils/typography';
 
 const Button = styled.button`
@@ -22,6 +22,11 @@ const Button = styled.button`
     display: initial;
     width: auto;
   }
+
+  ${props => props.selected && css`
+    background: #FF8400;
+    color: white;
+  `}
 `;
 
 export default Button;
