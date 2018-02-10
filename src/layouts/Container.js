@@ -6,6 +6,7 @@ const Container = styled.div`
   padding: 0 ${rhythm(2/3)};
   margin: 0 auto;
   width: 100%;
+  height: 100%;
 `;
 
 export default Container;

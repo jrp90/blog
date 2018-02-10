@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rhythm } from '../utils/typography';
 
 const Cards = styled.div`
@@ -10,6 +10,10 @@ const Cards = styled.div`
   @media(min-width: 800px) {
     margin: ${rhythm(2)} 0;
   }
+
+  ${props => props.posts <= 1 && css`
+    max-width: 500px;
+  `}
 `;
 
 export default Cards;

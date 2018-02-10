@@ -7,6 +7,7 @@ import Container from '../layouts/Container';
 import Tags from '../components/Tags';
 import Cards from '../components/Cards';
 import Card from '../components/Card';
+import NoPosts from '../components/NoPosts';
 
 class BlogIndex extends React.Component {
 
@@ -59,12 +60,18 @@ class BlogIndex extends React.Component {
           <Tags handleTagClick={this.handleTagClick} tags={tags}/>
         </Headroom>
         <Container>
-          <Cards>
-            {filteredPosts.map(({ node }, index) => {
-              const title = get(node, 'frontmatter.title') || node.fields.slug;
-              return <Card {...{node, title}} key={index} />;
-            })}
-          </Cards>
+          {filteredPosts.length ? (
+            <Cards {...{posts: filteredPosts.length}}>
+              {filteredPosts.map(({ node }, index) => {
+                const title = get(node, 'frontmatter.title') || node.fields.slug;
+                return <Card {...{node, title, filteredPosts}} key={index} />;
+              })}
+            </Cards>
+          ) : (
+            <NoPosts>
+              <p>Nothing to see here! Try another category :)</p>
+            </NoPosts>
+          )}
         </Container>
       </div>
     );
