@@ -2,6 +2,7 @@ import React from 'react';
 import { injectGlobal } from 'styled-components';
 import Site from './Site';
 import Footer from '../components/Footer';
+require('prismjs/themes/prism-solarizedlight.css');
 
 injectGlobal`
   html, body {

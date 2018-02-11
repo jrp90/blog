@@ -32,7 +32,7 @@ class Footer extends React.Component {
               <img src={github} alt="Github"/>
               <p>@jrp90</p>
             </Social>
-            <Social href="" title="">
+            <Social href="/rss.xml" title="RSS Feed">
               <img src={rss} alt="RSS"/>
               <p>RSS</p>
             </Social>
