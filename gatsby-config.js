@@ -71,7 +71,7 @@ module.exports = {
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
-                  image: { url: site.siteMetadata.siteUrl + edge.node.frontmatter.featuredImage },
+                  image: { url: site.siteMetadata.siteUrl + edge.node.frontmatter.featuredImage.name },
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
