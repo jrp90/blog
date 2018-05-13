@@ -23,7 +23,7 @@ class Tags extends React.Component {
   }
 
   render() {
-    const { handleTagClick, tags } = this.props;
+    const { handleTagClick, tag } = this.props;
     const { open } = this.state;
 
     return (
@@ -33,37 +33,37 @@ class Tags extends React.Component {
           <Nav {...{open}}>
             <Button
               onClick={handleTagClick.bind(null, 'code')}
-              selected={tags.includes('code')}>
+              selected={tag === 'code'}>
               Code
             </Button>
             <Button
               onClick={handleTagClick.bind(null, 'photos')}
-              selected={tags.includes('photos')}>
+              selected={tag === 'photos'}>
               Photos
             </Button>
             <Button
               onClick={handleTagClick.bind(null, 'travel')}
-              selected={tags.includes('travel')}>
+              selected={tag === 'travel'}>
               Travel
             </Button>
             <Button
               onClick={handleTagClick.bind(null, 'tech')}
-              selected={tags.includes('tech')}>
+              selected={tag === 'tech'}>
               Tech
             </Button>
             <Button
               onClick={handleTagClick.bind(null, 'fun')}
-              selected={tags.includes('fun')}>
+              selected={tag === 'fun'}>
               Fun
             </Button>
             <Button
               onClick={handleTagClick.bind(null, 'books')}
-              selected={tags.includes('books')}>
+              selected={tag === 'books'}>
               Books
             </Button>
             <Button
               onClick={handleTagClick.bind(null, 'gaming')}
-              selected={tags.includes('gaming')}>
+              selected={tag === 'gaming'}>
               Gaming
             </Button>
           </Nav>

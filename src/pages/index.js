@@ -15,38 +15,25 @@ class BlogIndex extends React.Component {
     super(props);
 
     this.state = {
-      tags: []
+      tag: ''
     };
 
     this.handleTagClick = this.handleTagClick.bind(this);
   }
 
   handleTagClick(tagClicked) {
-    const { tags } = this.state;
-
-    if (tags.includes(tagClicked)) {
-      this.setState(prevState => ({
-        tags: prevState.tags.filter(tag => tag !== tagClicked)
-      }));
-
-      return;
-    }
-
-    this.setState(prevState => ({
-      tags: [...prevState.tags, tagClicked]
-    }));
+    this.setState({tag: tagClicked});
   };
 
   render() {
-    const { tags } = this.state;
+    const { tag } = this.state;
     const siteTitle = get(this, 'props.data.site.siteMetadata.title');
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
     const filteredPosts = posts.filter(({ node }) => {
       const cardTags = get(node, 'frontmatter.tags').split(',');
-      const intersection = tags.filter(tag => cardTags.includes(tag));
 
-      if (tags.length === 0 || intersection.length) {
+      if (tag === '' || cardTags.includes(tag)) {
         return true;
       }
 
@@ -57,7 +44,7 @@ class BlogIndex extends React.Component {
       <div>
         <Helmet title={siteTitle} />
         <Headroom>
-          <Tags handleTagClick={this.handleTagClick} tags={tags}/>
+          <Tags handleTagClick={this.handleTagClick} tag={tag}/>
         </Headroom>
         <Container>
           {filteredPosts.length ? (
