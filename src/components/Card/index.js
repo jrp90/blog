@@ -10,25 +10,27 @@ import Excerpt from './Excerpt';
 import Tags from './Tags';
 
 class Card extends React.Component {
-  render() {
-    const { node, title } = this.props;
+ render() {
+  const { node, title } = this.props;
 
-    return (
-      <Link to={node.fields.slug}>
-        <Wrapper key={node.fields.slug}>
-          <Img sizes={node.frontmatter.featuredImage.childImageSharp.sizes} />
-          <Text>
-            <Header>{title}</Header>
-            <PostDate>{node.frontmatter.date}</PostDate>
-            <Excerpt dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            <Tags>
-              {node.frontmatter.tags.split(',').map(tag => <li>{tag}</li>)}
-            </Tags>
-          </Text>
-        </Wrapper>
-      </Link>
-    );
-  }
-};
+  return (
+   <Link to={node.fields.slug}>
+    <Wrapper key={node.fields.slug}>
+     <Img fluid={node.frontmatter.featuredImage.childImageSharp.fluid} />
+     <Text>
+      <Header>{title}</Header>
+      <PostDate>{node.frontmatter.date}</PostDate>
+      <Excerpt dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+      <Tags>
+       {node.frontmatter.tags.split(',').map(tag => (
+        <li>{tag}</li>
+       ))}
+      </Tags>
+     </Text>
+    </Wrapper>
+   </Link>
+  );
+ }
+}
 
 export default Card;
