@@ -1,9 +1,8 @@
 import React from 'react';
-import Headroom from 'react-headroom';
 import { graphql } from 'gatsby';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Container from '../components/Container';
 
 import Tags from '../components/Tags';
@@ -44,9 +43,7 @@ class BlogIndex extends React.Component {
   return (
    <Layout>
     <Helmet title={siteTitle} />
-    <Headroom>
-     <Tags handleTagClick={this.handleTagClick} tag={tag} />
-    </Headroom>
+    <Tags handleTagClick={this.handleTagClick} tag={tag} />
     <Container>
      {filteredPosts.length ? (
       <Cards {...{ posts: filteredPosts.length }}>
