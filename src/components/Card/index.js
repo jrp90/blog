@@ -23,7 +23,7 @@ class Card extends React.Component {
       <Excerpt dangerouslySetInnerHTML={{ __html: node.excerpt }} />
       <Tags>
        {node.frontmatter.tags.split(',').map(tag => (
-        <li>{tag}</li>
+        <li key={tag}>{tag}</li>
        ))}
       </Tags>
      </Text>
