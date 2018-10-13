@@ -32,6 +32,12 @@ class Tags extends React.Component {
      <Menu onClick={this.toggleMenu}>Menu</Menu>
      <Nav {...{ open }}>
       <Button
+       onClick={handleTagClick.bind(null, 'all')}
+       selected={tag === 'all'}
+      >
+       All
+      </Button>
+      <Button
        onClick={handleTagClick.bind(null, 'code')}
        selected={tag === 'code'}
       >
@@ -66,12 +72,6 @@ class Tags extends React.Component {
        selected={tag === 'books'}
       >
        Books
-      </Button>
-      <Button
-       onClick={handleTagClick.bind(null, 'gaming')}
-       selected={tag === 'gaming'}
-      >
-       Gaming
       </Button>
      </Nav>
     </Container>

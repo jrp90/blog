@@ -33,7 +33,7 @@ class BlogIndex extends React.Component {
   const filteredPosts = posts.filter(({ node }) => {
    const cardTags = get(node, 'frontmatter.tags').split(',');
 
-   if (tag === '' || cardTags.includes(tag)) {
+   if (tag === '' || tag === 'all' || cardTags.includes(tag)) {
     return true;
    }
 
