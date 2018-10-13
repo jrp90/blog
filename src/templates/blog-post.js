@@ -5,6 +5,8 @@ import get from 'lodash/get';
 import Layout from '../components/Layout';
 import Container from './Container';
 import Header from './Header';
+import BackLink from '../components/BackLink';
+import Back from '../components/Back';
 
 import { rhythm, scale } from '../utils/typography';
 
@@ -17,6 +19,10 @@ class BlogPostTemplate extends React.Component {
    <Layout>
     <Container>
      <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+     <BackLink to="/">
+      <Back />
+      <span>Back Home</span>
+     </BackLink>
      <Header>{post.frontmatter.title}</Header>
      <p
       style={{
