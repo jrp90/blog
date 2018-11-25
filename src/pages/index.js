@@ -2,13 +2,19 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
+import posed, { PoseGroup } from 'react-pose';
+
 import Layout from '../components/Layout';
 import Container from '../components/Container';
-
 import Tags from '../components/Tags';
 import Cards from '../components/Cards';
 import Card from '../components/Card';
 import NoPosts from '../components/NoPosts';
+
+const PosedCard = posed(Card)({
+ enter: { opacity: 1, y: 0, delay: ({ i }) => 200 + i * 50 },
+ exit: { opacity: 0, y: -30 },
+});
 
 class BlogIndex extends React.Component {
  constructor(props) {
@@ -47,10 +53,18 @@ class BlogIndex extends React.Component {
     <Container>
      {filteredPosts.length ? (
       <Cards {...{ posts: filteredPosts.length }}>
-       {filteredPosts.map(({ node }, index) => {
-        const title = get(node, 'frontmatter.title') || node.fields.slug;
-        return <Card {...{ node, title, filteredPosts }} key={index} />;
-       })}
+       <PoseGroup animateOnMount={true}>
+        {filteredPosts.map(({ node }, index) => {
+         const title = get(node, 'frontmatter.title') || node.fields.slug;
+         return (
+          <PosedCard
+           {...{ node, title, filteredPosts }}
+           key={index}
+           i={index}
+          />
+         );
+        })}
+       </PoseGroup>
       </Cards>
      ) : (
       <NoPosts>

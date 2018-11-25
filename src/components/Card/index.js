@@ -11,26 +11,34 @@ import Tags from './Tags';
 
 class Card extends React.Component {
  render() {
-  const { node, title } = this.props;
+  const { node, title, forwardedRef } = this.props;
 
   return (
-   <Link to={node.fields.slug}>
-    <Wrapper key={node.fields.slug}>
-     <Img fluid={node.frontmatter.featuredImage.childImageSharp.fluid} />
-     <Text>
-      <Header>{title}</Header>
-      <PostDate>{node.frontmatter.date}</PostDate>
-      <Excerpt dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-      <Tags>
-       {node.frontmatter.tags.split(',').map(tag => (
-        <li key={tag}>{tag}</li>
-       ))}
-      </Tags>
-     </Text>
-    </Wrapper>
-   </Link>
+   <div ref={forwardedRef}>
+    <Link to={node.fields.slug}>
+     <Wrapper key={node.fields.slug}>
+      <Img fluid={node.frontmatter.featuredImage.childImageSharp.fluid} />
+      <Text>
+       <Header>{title}</Header>
+       <PostDate>{node.frontmatter.date}</PostDate>
+       <Excerpt dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+       <Tags>
+        {node.frontmatter.tags.split(',').map(tag => (
+         <li key={tag}>{tag}</li>
+        ))}
+       </Tags>
+      </Text>
+     </Wrapper>
+    </Link>
+   </div>
   );
  }
 }
 
-export default Card;
+const PosedCard = React.forwardRef((props, ref) => (
+ <Card forwardedRef={ref} {...props}>
+  {props.children}
+ </Card>
+));
+
+export default PosedCard;

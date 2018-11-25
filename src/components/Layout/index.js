@@ -41,7 +41,7 @@ injectGlobal`
    * 1. Make the element just wide enough to fit its content.
    * 2. Always fill the visible space in .gatsby-highlight.
    */
-  .gatsby-highlight pre[class*="language-"] {
+  .gatsby-highlight pre[class*="language-"], .gatsby-highlight code[class*="language-"] {
     background-color: transparent;
     margin: 0;
     padding: 0;
