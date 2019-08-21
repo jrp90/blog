@@ -21,7 +21,9 @@ class BlogPostTemplate extends React.Component {
       <Layout {...{ location }}>
         <PoseGroup animateOnMount={true}>
           <Container key="container" className="h-entry">
-            <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+            <Helmet title={`${post.frontmatter.title} | ${siteTitle}`}>
+              <script src={'/webmention.js'} async />
+            </Helmet>
             <BackLink to="/">
               <Back />
               <span>Back Home</span>
@@ -31,7 +33,7 @@ class BlogPostTemplate extends React.Component {
               className="u-url"
               style={{ display: 'none' }}
             >
-              <time class="dt-published">
+              <time className="dt-published">
                 {new Date(post.frontmatter.date).toISOString()}
               </time>
             </a>
@@ -50,6 +52,7 @@ class BlogPostTemplate extends React.Component {
               className="e-content"
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
+            <div id="webmentions" />
           </Container>
         </PoseGroup>
       </Layout>
