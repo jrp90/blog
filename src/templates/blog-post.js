@@ -18,7 +18,7 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
 
     return (
-      <Layout>
+      <Layout {...{ location }}>
         <PoseGroup animateOnMount={true}>
           <Container key="container" className="h-entry">
             <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />

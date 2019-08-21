@@ -53,15 +53,15 @@ injectGlobal`
 `;
 
 class Layout extends React.Component {
- render() {
-  const { children } = this.props;
-  return (
-   <Site>
-    {children}
-    <Footer />
-   </Site>
-  );
- }
+  render() {
+    const { children, location } = this.props;
+    return (
+      <Site>
+        {children}
+        <Footer {...{ location }} />
+      </Site>
+    );
+  }
 }
 
 export default Layout;

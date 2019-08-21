@@ -12,18 +12,27 @@ import rss from './rss.svg';
 
 class Footer extends React.Component {
   render() {
+    const { location } = this.props;
+
     return (
       <Wrapper>
         <Container>
           <Content className="h-card">
             <Bio>
               <img src={james} alt="James Pettifer" className="u-photo" />
-              <p>
+              <p className="p-note">
                 Hi, I'm <span className="p-name">James Pettifer</span>, a
                 frontend web developer based in{' '}
                 <span className="p-locality">Nottingham</span>,{' '}
                 <span className="p-country-name">UK</span>
               </p>
+              <a
+                href={location.href}
+                style={{ display: 'none' }}
+                className="u-url u-uid"
+              >
+                https://jamespettifer.com
+              </a>
             </Bio>
             <Social
               first
