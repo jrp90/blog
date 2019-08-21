@@ -19,12 +19,21 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout>
         <PoseGroup animateOnMount={true}>
-          <Container key="container" className="h-card">
+          <Container key="container" className="h-entry">
             <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
             <BackLink to="/">
               <Back />
               <span>Back Home</span>
             </BackLink>
+            <a
+              href={window.location.href}
+              className="u-url"
+              style={{ display: 'none' }}
+            >
+              <time class="dt-published">
+                {new Date(post.frontmatter.date).toISOString()}
+              </time>
+            </a>
             <Header className="p-name">{post.frontmatter.title}</Header>
             <p
               style={{
@@ -36,7 +45,10 @@ class BlogPostTemplate extends React.Component {
             >
               {post.frontmatter.date}
             </p>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            <div
+              className="e-content"
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
           </Container>
         </PoseGroup>
       </Layout>
