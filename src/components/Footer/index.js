@@ -15,11 +15,14 @@ class Footer extends React.Component {
     return (
       <Wrapper>
         <Container>
-          <Content>
+          <Content className="h-card">
             <Bio>
-              <img src={james} alt="James Pettifer" />
+              <img src={james} alt="James Pettifer" className="u-photo" />
               <p>
-                Hi, I'm James, a frontend web developer based in Nottingham, UK
+                Hi, I'm <span className="p-name">James Pettifer</span>, a
+                frontend web developer based in{' '}
+                <span className="p-locality">Nottingham</span>,{' '}
+                <span className="p-country-name">UK</span>
               </p>
             </Bio>
             <Social
