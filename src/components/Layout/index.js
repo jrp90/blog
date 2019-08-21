@@ -1,5 +1,6 @@
 import React from 'react';
 import { injectGlobal } from 'styled-components';
+import Helmet from 'react-helmet';
 import Site from './Site';
 import Footer from '../Footer';
 require('prismjs/themes/prism-solarizedlight.css');
@@ -57,6 +58,16 @@ class Layout extends React.Component {
     const { children, location } = this.props;
     return (
       <Site>
+        <Helmet>
+          <link
+            rel="webmention"
+            href="https://webmention.io/jamespettifer.com/webmention"
+          />
+          <link
+            rel="pingback"
+            href="https://webmention.io/jamespettifer.com/xmlrpc"
+          />
+        </Helmet>
         {children}
         <Footer {...{ location }} />
       </Site>
