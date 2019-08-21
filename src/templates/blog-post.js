@@ -13,6 +13,7 @@ import { rhythm, scale } from '../utils/typography';
 
 class BlogPostTemplate extends React.Component {
   render() {
+    const { location } = this.props;
     const post = this.props.data.markdownRemark;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
 
@@ -26,7 +27,7 @@ class BlogPostTemplate extends React.Component {
               <span>Back Home</span>
             </BackLink>
             <a
-              href={window.location.href}
+              href={location.href}
               className="u-url"
               style={{ display: 'none' }}
             >
