@@ -39,6 +39,7 @@ class Footer extends React.Component {
               href="https://www.instagram.com/jrp09u/"
               title="Instagram"
               target="_blank"
+              rel="me"
             >
               <img src={instagram} alt="Instagram" />
               <p>@jrp09u</p>
