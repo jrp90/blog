@@ -8,6 +8,7 @@ import Container from './Container';
 import Header from './Header';
 import BackLink from '../components/BackLink';
 import Back from '../components/Back';
+import WebMentions from '../components/WebMentions';
 
 import { rhythm, scale } from '../utils/typography';
 
@@ -21,9 +22,7 @@ class BlogPostTemplate extends React.Component {
       <Layout {...{ location }}>
         <PoseGroup animateOnMount={true}>
           <Container key="container" className="h-entry">
-            <Helmet title={`${post.frontmatter.title} | ${siteTitle}`}>
-              <script src={'/webmention.js'} async />
-            </Helmet>
+            <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
             <BackLink to="/">
               <Back />
               <span>Back Home</span>
@@ -52,7 +51,7 @@ class BlogPostTemplate extends React.Component {
               className="e-content"
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
-            <div id="webmentions" />
+            <WebMentions />
           </Container>
         </PoseGroup>
       </Layout>
